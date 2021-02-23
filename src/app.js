@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-console.log('js loaded from webpack successfully')
+const jsx = React.createElement('h1', null, 'Welcome Aborad, This Is React');
 
-console.log(React);
+const domElement = document.getElementById('app');
 
-console.log(ReactDOM);
+ReactDOM.render(jsx, domElement);
