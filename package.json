@@ -1,0 +1,9 @@
+{
+  "name": "react-otka",
+  "version": "1.0.0",
+  "description": "List Of React Apps",
+  "main": "index.js",
+  "repository": "https://github.com/yugeshpalvai21/react-otka.git",
+  "author": "Yugesh Palvai",
+  "license": "MIT"
+}
