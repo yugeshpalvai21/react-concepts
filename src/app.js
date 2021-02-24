@@ -11,17 +11,38 @@ class Counter extends React.Component {
         super(props);
         this.state = {
             counter: 0
-        }
+        };
+        this.addOne = this.addOne.bind(this);
+        this.minusOne = this.minusOne.bind(this);
+        this.reSet = this.reSet.bind(this);
+
     }
+
+    addOne() {
+        console.log('addOne Clicked');
+    }
+
+    minusOne() {
+        console.log('minus One Clicked');
+    }
+
+    reSet() {
+        console.log('reset Clicked');
+    }
+
     render() {
         return (
             <div>
-                <h3>Counter App - React</h3>
-                <h4>Counter - {this.state.counter}</h4>
+                <h3>Counter App - React</h3><hr />
+                <h4>Counter - {this.state.counter}</h4><hr />
+                <button onClick={this.addOne}>Add One (+1)</button> <br /><br />
+                <button onClick={this.minusOne}>Minus One (-1)</button> <br /><br />
+                <button onClick={this.reSet}>Reset Counter</button>
             </div>
         )
     }
 }
+
 const domElement = document.getElementById('app');
 
 ReactDOM.render(<Counter />, domElement);
