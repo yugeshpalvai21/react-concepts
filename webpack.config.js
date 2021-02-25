@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/app.js',
+    entry: './src/playground/VisibilityToggle.js',
     output: {
         filename: 'app.js',
         path: path.resolve(__dirname, 'public', 'js')
