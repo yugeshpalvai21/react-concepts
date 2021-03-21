@@ -1,0 +1,13 @@
+{
+  "name": "react-otka",
+  "version": "1.0.0",
+  "description": "React Playground",
+  "main": "index.js",
+  "repository": "https://github.com/yugeshpalvai21/react-otka.git",
+  "author": "Yugesh Palvai <yugeshpalvai21@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
