@@ -1,7 +1,5 @@
-console.log('React Play with CDNs');
+"use strict";
 
-var jsx = React.createElement('div', null, 
-                            React.createElement('h1', null, 'Hello World'), 
-                            React.createElement('p', null, 'This Is Subtitle'));
-
-ReactDOM.render(jsx, document.getElementById('app'));
+var jsx = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Hello React"), /*#__PURE__*/React.createElement("p", null, "This is From React World"));
+var element = document.getElementById('app');
+ReactDOM.render(jsx, element);
