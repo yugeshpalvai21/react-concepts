@@ -1,1 +1,1 @@
-console.log('cleaned directory now')
+console.log('cleaned');
