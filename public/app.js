@@ -1,25 +1,26 @@
 "use strict";
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+// ES6 WAY
+var multiplier = {
+  numbers: [2, 3, 4, 5, 6],
+  multiplyBy: 8,
+  multiply: function multiply() {
+    var _this = this;
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Person = /*#__PURE__*/function () {
-  function Person() {
-    _classCallCheck(this, Person);
+    this.numbers.forEach(function (number) {
+      return console.log(number + ' * ' + _this.multiplyBy + ' = ' + number * _this.multiplyBy);
+    });
   }
-
-  _createClass(Person, [{
-    key: "details",
-    value: function details() {
-      console.log('details method of Person class called...');
-    }
-  }]);
-
-  return Person;
-}();
-
-var person = new Person();
-person.details();
+};
+multiplier.multiply(); //ES5 WAY
+// const multiplier = {
+//     numbers: [2,3,4,5,6],
+//     multiplyBy: 8,
+//     multiply: function() {
+//         const that = this;
+//         this.numbers.forEach(function(number){
+//             console.log(number + ' * ' + that.multiplyBy + ' = ' + number*that.multiplyBy);
+//         })
+//     }
+// }
+// multiplier.multiply();

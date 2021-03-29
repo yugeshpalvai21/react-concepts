@@ -7,7 +7,7 @@
   "author": "Yugesh Palvai <yugeshpalvai21@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "babel ./javascript/pack.js --out-file ./public/app.js --presets=@babel/preset-env,@babel/preset-react --watch"
+    "build": "babel ./javascript/es6_arrow_functions.js --out-file ./public/app.js --presets=@babel/preset-env,@babel/preset-react --watch"
   },
   "dependencies": {
     "react": "^17.0.1",
