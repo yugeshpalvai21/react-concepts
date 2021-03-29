@@ -7,12 +7,12 @@ var multiplier = {
   multiply: function multiply() {
     var _this = this;
 
-    this.numbers.forEach(function (number) {
-      return console.log(number + ' * ' + _this.multiplyBy + ' = ' + number * _this.multiplyBy);
+    return this.numbers.map(function (number) {
+      return number * _this.multiplyBy;
     });
   }
 };
-multiplier.multiply(); //ES5 WAY
+console.log(multiplier.multiply()); //ES5 WAY
 // const multiplier = {
 //     numbers: [2,3,4,5,6],
 //     multiplyBy: 8,

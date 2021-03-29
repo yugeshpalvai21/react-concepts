@@ -3,11 +3,11 @@ const multiplier = {
     numbers: [2,3,4,5,6],
     multiplyBy: 8,
     multiply() {
-        this.numbers.forEach((number) => console.log(number + ' * ' + this.multiplyBy + ' = ' + number*this.multiplyBy))
+        return this.numbers.map((number) => number*this.multiplyBy)
     }
 }
 
-multiplier.multiply();
+console.log(multiplier.multiply());
 
 //ES5 WAY
 // const multiplier = {
