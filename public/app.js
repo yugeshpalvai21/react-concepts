@@ -1,29 +1,29 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// ES6 WAY
-var multiplier = {
-  numbers: [2, 3, 4, 5, 6],
-  multiplyBy: 8,
-  multiply: function multiply() {
-    var _this = this;
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-    return this.numbers.map(function (number) {
-      return number * _this.multiplyBy;
-    });
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Person = /*#__PURE__*/function () {
+  function Person(name, location) {
+    _classCallCheck(this, Person);
+
+    this.name = name;
+    this.location = location;
   }
-};
-console.log(multiplier.multiply());
-console.log(_typeof(multiplier.multiply)); //ES5 WAY
-// const multiplier = {
-//     numbers: [2,3,4,5,6],
-//     multiplyBy: 8,
-//     multiply: function() {
-//         const that = this;
-//         this.numbers.forEach(function(number){
-//             console.log(number + ' * ' + that.multiplyBy + ' = ' + number*that.multiplyBy);
-//         })
-//     }
-// }
-// multiplier.multiply();
+
+  _createClass(Person, [{
+    key: "greeting",
+    value: function greeting() {
+      return "Hey!! ".concat(this.name, ", Are You From ").concat(this.location, ", Right?");
+    }
+  }]);
+
+  return Person;
+}();
+
+var person = new Person('yugesh', 'ind');
+console.log(person);
+console.log(person.greeting());
