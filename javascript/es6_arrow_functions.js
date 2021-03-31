@@ -8,6 +8,7 @@ const multiplier = {
 }
 
 console.log(multiplier.multiply());
+console.log(typeof multiplier.multiply);
 
 //ES5 WAY
 // const multiplier = {
