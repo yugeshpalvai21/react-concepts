@@ -1,26 +1,22 @@
 {
   "name": "react-otka",
   "version": "1.0.0",
-  "description": "List Of React Apps",
+  "description": "React Playground",
   "main": "index.js",
   "repository": "https://github.com/yugeshpalvai21/react-otka.git",
-  "author": "Yugesh Palvai",
+  "author": "Yugesh Palvai <yugeshpalvai21@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "serve": "live-server public",
-    "build": "webpack -w"
+    "build": "babel ./javascript/pack.js --out-file ./public/app.js --presets=@babel/preset-env,@babel/preset-react --watch"
   },
   "dependencies": {
-    "@babel/core": "^7.13.1",
-    "@babel/preset-env": "^7.13.5",
-    "@babel/preset-react": "^7.12.13",
-    "babel-loader": "^8.2.2",
-    "live-server": "^1.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "webpack": "^5.24.0",
-    "webpack-cli": "^4.5.0"
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-react": "^7.12.13"
   }
 }
