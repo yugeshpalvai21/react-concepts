@@ -1,23 +1,18 @@
-class Header extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title: props.title,
-            description: props.description
-        }
-    }
-    
-    render() {
-        return (
-            <div>
-                <h3>{this.state.title}</h3>
-                <p>{this.state.description}</p>
-            </div>
-        );
-    }
+const Header = (props) => {
+    console.log(props);
+    return (
+        <div>
+            <h4>{props.title}</h4>
+            <p>{props.description}</p>
+        </div>
+    );
+}
+
+Header.defaultProps = {
+    title: 'Basic Title',
+    description: 'Generic description'
 }
 
 const domElement = document.getElementById('app');
 
-ReactDOM.render(<Header title='Main Title' description='main description'/>, domElement)
-
+ReactDOM.render(<Header />, domElement)
