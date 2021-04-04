@@ -2,9 +2,11 @@
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -20,58 +22,36 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var Header = /*#__PURE__*/function (_React$Component) {
+  _inherits(Header, _React$Component);
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+  var _super = _createSuper(Header);
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-var Person = /*#__PURE__*/function () {
-  function Person(name, location) {
-    _classCallCheck(this, Person);
-
-    this.name = name;
-    this.location = location;
-  }
-
-  _createClass(Person, [{
-    key: "greeting",
-    value: function greeting() {
-      return "Hey!! ".concat(this.name, ", Are You From ").concat(this.location, ", Right?");
-    }
-  }]);
-
-  return Person;
-}();
-
-var Student = /*#__PURE__*/function (_Person) {
-  _inherits(Student, _Person);
-
-  var _super = _createSuper(Student);
-
-  function Student(name, location, branch) {
+  function Header(props) {
     var _this;
 
-    _classCallCheck(this, Student);
+    _classCallCheck(this, Header);
 
-    _this = _super.call(this, name, location);
-    _this.branch = branch;
+    _this = _super.call(this, props);
+    _this.state = {
+      title: props.title,
+      description: props.description
+    };
     return _this;
   }
 
-  _createClass(Student, [{
-    key: "greeting",
-    value: function greeting() {
-      return _get(_getPrototypeOf(Student.prototype), "greeting", this).call(this) + " And Brnch Is ".concat(this.branch);
+  _createClass(Header, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, this.state.title), /*#__PURE__*/React.createElement("p", null, this.state.description));
     }
   }]);
 
-  return Student;
-}(Person); // const person = new Person('yugesh', 'ind');
-// console.log(person);
-// console.log(person.greeting());
+  return Header;
+}(React.Component);
 
-
-var student = new Student('yugesh', 'Ind', 'CSE');
-console.log(student);
-console.log(student.greeting());
+var domElement = document.getElementById('app');
+ReactDOM.render( /*#__PURE__*/React.createElement(Header, {
+  title: "Main Title",
+  description: "main description"
+}), domElement);
