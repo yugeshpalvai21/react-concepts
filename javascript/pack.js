@@ -1,10 +1,25 @@
 class TilApp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            topics: []
+        };
+
+        this.handleAdd = this.handleAdd.bind(this);
+    }
+    
+    handleAdd(item) {
+        this.setState((prevState) => {
+            return { topics: [...prevState.topics, item]}
+        });
+    }
+    
     render() {
         return (
             <div>
                 <Header />
-                <AddTopic />
-                <Topics topics={['first', 'second', 'third']}/>
+                <AddTopic handleAdd={this.handleAdd}/>
+                <Topics topics={this.state.topics}/>
             </div>
         );
     }
@@ -22,10 +37,23 @@ class Header extends React.Component {
 }
 
 class AddTopic extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const newItem = document.getElementById('newTopic').value;
+        document.getElementById('newTopic').value = '';
+        this.props.handleAdd(newItem);
+    }
+
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <input type="text" id="newTopic" placeholder="write new topic here.."></input>
                     <input type="submit" value="Add To List"></input>
                 </form>
