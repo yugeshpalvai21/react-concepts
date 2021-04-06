@@ -6,11 +6,19 @@ class TilApp extends React.Component {
         };
 
         this.handleAdd = this.handleAdd.bind(this);
+        this.handleDeleteItem = this.handleDeleteItem.bind(this);
     }
     
     handleAdd(item) {
         this.setState((prevState) => {
             return { topics: [...prevState.topics, item]}
+        });
+    }
+
+    handleDeleteItem(delItem) {
+        console.log("you're trying to delete - ", delItem);
+        this.setState((prevState) => {
+            return { topics: prevState.topics.filter((item) => item != delItem ) }
         });
     }
     
@@ -19,7 +27,7 @@ class TilApp extends React.Component {
             <div>
                 <Header />
                 <AddTopic handleAdd={this.handleAdd}/>
-                <Topics topics={this.state.topics}/>
+                <Topics topics={this.state.topics} handleDeleteItem={this.handleDeleteItem} />
             </div>
         );
     }
@@ -64,12 +72,33 @@ class AddTopic extends React.Component {
 
 class Topics extends React.Component {
     render() {
-        console.log(this.props);
         return (
             <div>
-                { this.props.topics === undefined ? <p>No Topics Found</p> : this.props.topics.length }
+                <ul>
+                    { this.props.topics.map((item) => <Topic key={item} itemValue={item} handleDeleteItem={this.props.handleDeleteItem}/>) }
+                </ul>
             </div>
         );
+    }
+}
+
+class Topic extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleDelete = this.handleDelete.bind(this);
+    }
+
+    handleDelete(e) {
+        this.props.handleDeleteItem(this.props.itemValue);
+    }
+
+    render() {  
+        return (
+            <li>
+                {this.props.itemValue} &nbsp;&nbsp;&nbsp;
+                <button onClick={this.handleDelete}>Delete This Item</button>
+            </li>
+        )
     }
 }
 

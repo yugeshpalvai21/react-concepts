@@ -49,6 +49,7 @@ var TilApp = /*#__PURE__*/function (_React$Component) {
       topics: []
     };
     _this.handleAdd = _this.handleAdd.bind(_assertThisInitialized(_this));
+    _this.handleDeleteItem = _this.handleDeleteItem.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -62,12 +63,25 @@ var TilApp = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "handleDeleteItem",
+    value: function handleDeleteItem(delItem) {
+      console.log("you're trying to delete - ", delItem);
+      this.setState(function (prevState) {
+        return {
+          topics: prevState.topics.filter(function (item) {
+            return item != delItem;
+          })
+        };
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Header, null), /*#__PURE__*/React.createElement(AddTopic, {
         handleAdd: this.handleAdd
       }), /*#__PURE__*/React.createElement(Topics, {
-        topics: this.state.topics
+        topics: this.state.topics,
+        handleDeleteItem: this.handleDeleteItem
       }));
     }
   }]);
@@ -152,12 +166,51 @@ var Topics = /*#__PURE__*/function (_React$Component4) {
   _createClass(Topics, [{
     key: "render",
     value: function render() {
-      console.log(this.props);
-      return /*#__PURE__*/React.createElement("div", null, this.props.topics === undefined ? /*#__PURE__*/React.createElement("p", null, "No Topics Found") : this.props.topics.length);
+      var _this3 = this;
+
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("ul", null, this.props.topics.map(function (item) {
+        return /*#__PURE__*/React.createElement(Topic, {
+          key: item,
+          itemValue: item,
+          handleDeleteItem: _this3.props.handleDeleteItem
+        });
+      })));
     }
   }]);
 
   return Topics;
+}(React.Component);
+
+var Topic = /*#__PURE__*/function (_React$Component5) {
+  _inherits(Topic, _React$Component5);
+
+  var _super5 = _createSuper(Topic);
+
+  function Topic(props) {
+    var _this4;
+
+    _classCallCheck(this, Topic);
+
+    _this4 = _super5.call(this, props);
+    _this4.handleDelete = _this4.handleDelete.bind(_assertThisInitialized(_this4));
+    return _this4;
+  }
+
+  _createClass(Topic, [{
+    key: "handleDelete",
+    value: function handleDelete(e) {
+      this.props.handleDeleteItem(this.props.itemValue);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("li", null, this.props.itemValue, " \xA0\xA0\xA0", /*#__PURE__*/React.createElement("button", {
+        onClick: this.handleDelete
+      }, "Delete This Item"));
+    }
+  }]);
+
+  return Topic;
 }(React.Component);
 
 var domElement = document.getElementById('app');
