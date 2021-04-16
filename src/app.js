@@ -1,0 +1,1 @@
+console.log('webpack configurations test file');
