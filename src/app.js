@@ -1,1 +1,1 @@
-console.log('webpack configurations test file');
+console.log('webpack configured correctly with watch mode....');
