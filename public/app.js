@@ -7,15 +7,16 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/app.js":
 /*!********************!*\
   !*** ./src/app.js ***!
   \********************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("const getDetails = __webpack_require__(/*! ./getDetails.js */ \"./src/getDetails.js\");\n\ngetDetails();\n\n//# sourceURL=webpack://react-otka/./src/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _getDetails_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getDetails.js */ \"./src/getDetails.js\");\n\n\n(0,_getDetails_js__WEBPACK_IMPORTED_MODULE_0__.getDetails)();\n\nconst name = (0,_getDetails_js__WEBPACK_IMPORTED_MODULE_0__.default)('Yugesh');\nconsole.log(name);\n\nconsole.log(_getDetails_js__WEBPACK_IMPORTED_MODULE_0__.person.firstName);\nconsole.log(_getDetails_js__WEBPACK_IMPORTED_MODULE_0__.person.lastName);\nconsole.log(_getDetails_js__WEBPACK_IMPORTED_MODULE_0__.person.getFullName());\n\n//# sourceURL=webpack://react-otka/./src/app.js?");
 
 /***/ }),
 
@@ -23,9 +24,9 @@ eval("const getDetails = __webpack_require__(/*! ./getDetails.js */ \"./src/getD
 /*!***************************!*\
   !*** ./src/getDetails.js ***!
   \***************************/
-/***/ ((module) => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("function getDetails() {\n    console.log('My Name Is Yugesh, ' + 'and im from India');\n}\n\nmodule.exports = getDetails;\n\n//# sourceURL=webpack://react-otka/./src/getDetails.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getDetails\": () => (/* binding */ getDetails),\n/* harmony export */   \"default\": () => (/* binding */ getName),\n/* harmony export */   \"person\": () => (/* binding */ person)\n/* harmony export */ });\nconst getDetails = () => {\n    console.log(\"exploring es6 imports and exports\");\n}\n\nconst getName = (name) => {\n    return name.toUpperCase()\n}\n\nconst person = { \n                firstName: 'yugesh', \n                lastName: 'palvai', \n                getFullName: function() {\n                    return `${this.firstName} ${this.lastName}`\n                }}\n\n\n\n//# sourceURL=webpack://react-otka/./src/getDetails.js?");
 
 /***/ })
 
@@ -54,6 +55,35 @@ eval("function getDetails() {\n    console.log('My Name Is Yugesh, ' + 'and im f
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	
