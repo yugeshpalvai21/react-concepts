@@ -1,1 +1,3 @@
-console.log('webpack configured correctly with watch mode....');
+const getDetails = require('./getDetails.js');
+
+getDetails();
