@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build-babel": "babel ./javascript/pack.js --out-file ./public/app.js --presets=@babel/preset-env,@babel/preset-react --watch",
-    "build": "webpack --watch"
+    "build": "webpack --mode development --watch"
   },
   "dependencies": {
     "react": "^17.0.1",
