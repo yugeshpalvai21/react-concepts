@@ -15,6 +15,7 @@ class TilApp extends React.Component {
     }
     
     handleAdd(item) {
+        console.log(testinggg);
         this.setState((prevState) => {
             return { topics: [...prevState.topics, item]}
         });
