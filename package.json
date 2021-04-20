@@ -8,11 +8,14 @@
   "license": "MIT",
   "scripts": {
     "build-babel": "babel ./javascript/pack.js --out-file ./public/app.js --presets=@babel/preset-env,@babel/preset-react --watch",
-    "build": "webpack --mode development --watch"
+    "build": "webpack",
+    "serve": "webpack serve"
   },
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "webpack": "^5.34.0",
+    "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },
   "devDependencies": {
@@ -20,8 +23,6 @@
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
     "@babel/preset-react": "^7.12.13",
-    "babel-loader": "^8.2.2",
-    "webpack": "^5.33.2",
-    "webpack-cli": "^4.6.0"
+    "babel-loader": "^8.2.2"
   }
 }
