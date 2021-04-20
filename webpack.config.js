@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: './til_app/app.js',
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'app.js'
@@ -12,6 +12,10 @@ module.exports = {
                 test: /\.js$/,
                 use: ['babel-loader'],
                 exclude: /node_modules/
+            },
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
     },
