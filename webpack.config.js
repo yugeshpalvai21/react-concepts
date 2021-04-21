@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './visibility_app/app.js',
+    entry: './til_app/app.js',
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'app.js'
