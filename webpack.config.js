@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './til_app/app.js',
+    entry: './react_router/app.js',
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'app.js'
@@ -22,6 +22,7 @@ module.exports = {
     mode: 'development',
     devtool: 'eval-cheap-module-source-map',
     devServer: {
-        contentBase: path.resolve(__dirname, 'public')
+        contentBase: path.resolve(__dirname, 'public'),
+        historyApiFallback: true
     }
 }
