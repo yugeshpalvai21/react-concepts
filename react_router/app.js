@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route, Switch, Link} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, Link, NavLink} from 'react-router-dom';
+import './styles/styles.scss';
 
 const Home = () => (
         <div>
@@ -28,10 +29,10 @@ const Header = () => (
     <div>
         <h2 align="center">REACT-ROUTER-APP</h2>
         <hr/>
-        <Link to="/">Home</Link>
-        <Link to="about">About</Link>
-        <Link to="portfolios">Portfolios</Link>
-        <Link to="contact">Contact</Link>
+        <NavLink to="/" activeClassName="highlight" exact={true}>Home</NavLink>
+        <NavLink to="about" activeClassName="highlight">About</NavLink>
+        <NavLink to="portfolios" activeClassName="highlight">Portfolios</NavLink>
+        <NavLink to="contact" activeClassName="highlight">Contact</NavLink>
         <hr/>
     </div>
 )
