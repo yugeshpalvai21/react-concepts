@@ -1,7 +1,15 @@
 import { createStore } from 'redux';
 
 const store = createStore((state = {count: 0}, action) => {
-    return state;
+    switch(action.type) {
+        default:
+            return state
+    }
 });
 
-console.log(store.getState());
+store.subscribe(() => {
+    console.log(store.getState());
+});
+
+
+store.dispatch({type: 'something'});
