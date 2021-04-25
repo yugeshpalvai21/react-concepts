@@ -6,6 +6,8 @@ const productsReducerDefaultData = [{id: '123', title: 'some product', price: '1
 
 const productsReducer = (state = productsReducerDefaultData,action) => {
     switch(action.type) {
+        case 'ADD_PRODUCT':
+            return [...state, {id: '134', title: 'some other product', price: '345', created_at: '567'}]
         default: 
             return state;
     }
@@ -34,6 +36,10 @@ const store = createStore(combineReducers({products: productsReducer, filters: f
 store.subscribe(() => {
     console.log(store.getState());
 })
+
+store.dispatch({type: 'SOME_DEFAULT'});
+
+store.dispatch({type: 'ADD_PRODUCT'});
 
 store.dispatch({type: 'ADD_PRODUCT'});
 
