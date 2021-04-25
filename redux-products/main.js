@@ -1,9 +1,19 @@
 import { createStore, combineReducers } from 'redux';
 
-const productsReducer = (state = []) => {
+const productsReducerDefaultData = [{id: '123', title: 'some product', price: '123', created_at: '123'}];
+
+const productsReducer = (state = productsReducerDefaultData) => {
     return state;
 }
-const filtersReducer = (state = {}) => {
+
+const filtersReducerDefaultData = {
+    text: "",
+    sort_by: "price",
+    startDate: "123",
+    endDate: "123"
+}
+
+const filtersReducer = (state = filtersReducerDefaultData) => {
     return state;
 }
 
