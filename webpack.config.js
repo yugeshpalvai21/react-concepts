@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './redux/main.js',
+    entry: './redux-basic/main.js',
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'app.js'
