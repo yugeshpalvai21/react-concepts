@@ -48,6 +48,7 @@ const productsReducer = (state = productsReducerDefaultData,action) => {
 
 // FILTERS REDUCER
 
+
 const filtersReducerDefaultData = {
     text: "",
     sort_by: "price",
@@ -55,8 +56,15 @@ const filtersReducerDefaultData = {
     endDate: "123"
 }
 
+const AddText = (text) => ({
+    type: 'ADD_TEXT',
+    text
+})
+
 const filtersReducer = (state = filtersReducerDefaultData, action) => {
     switch(action.type){
+        case 'ADD_TEXT':
+           return {...state, text: action.text } 
         default:
             return state;
     }
@@ -78,3 +86,5 @@ store.dispatch(DeleteProduct(unknown_product.data.id));
 
 store.dispatch(EditProduct(edited_product.data.id, {price: 'New Changed Price'}));
 store.dispatch(EditProduct(edited_product.data.id));
+
+store.dispatch(AddText('samsung'));
