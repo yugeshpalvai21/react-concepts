@@ -1,17 +1,29 @@
 import { createStore, combineReducers } from 'redux';
+import uuid from 'uuid';
 
 // PRODUCTS REDUCERRR
 
-const productsReducerDefaultData = [{id: '123', title: 'some product', price: '123', created_at: '123'}];
+const productsReducerDefaultData = [];
+
+const AddProduct = ({title = "Not Defined", price = '00', created_at = "123"} = {}) => ({
+    type: "ADD_PRODUCT",
+    data: {
+        id: uuid(),
+        title,
+        price,
+        created_at
+    }
+})
 
 const productsReducer = (state = productsReducerDefaultData,action) => {
     switch(action.type) {
         case 'ADD_PRODUCT':
-            return [...state, {id: '134', title: 'some other product', price: '345', created_at: '567'}]
+            return [...state, action.data]
         default: 
             return state;
     }
 }
+
 
 // FILTERS REDUCER
 
@@ -37,9 +49,6 @@ store.subscribe(() => {
     console.log(store.getState());
 })
 
-store.dispatch({type: 'SOME_DEFAULT'});
 
-store.dispatch({type: 'ADD_PRODUCT'});
-
-store.dispatch({type: 'ADD_PRODUCT'});
-
+store.dispatch(AddProduct());
+store.dispatch(AddProduct({title: 'Some Product Name', price: '555'}));
