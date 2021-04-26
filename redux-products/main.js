@@ -15,10 +15,17 @@ const AddProduct = ({title = "Not Defined", price = '00', created_at = "123"} = 
     }
 })
 
+const DeleteProduct = (id) => ({
+    type: "DELETE_PRODUCT",
+    id
+})
+
 const productsReducer = (state = productsReducerDefaultData,action) => {
     switch(action.type) {
         case 'ADD_PRODUCT':
             return [...state, action.data]
+        case 'DELETE_PRODUCT':
+            return state.filter((product) => { return (product.id != action.id) })
         default: 
             return state;
     }
@@ -50,5 +57,7 @@ store.subscribe(() => {
 })
 
 
-store.dispatch(AddProduct());
+const unknown_product = store.dispatch(AddProduct());
 store.dispatch(AddProduct({title: 'Some Product Name', price: '555'}));
+
+store.dispatch(DeleteProduct(unknown_product.data.id));
