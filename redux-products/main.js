@@ -20,12 +20,26 @@ const DeleteProduct = (id) => ({
     id
 })
 
+const EditProduct = (id, new_data = {}) => ({
+    type: 'EDIT_PRODUCT',
+    id,
+    new_data
+})
+
 const productsReducer = (state = productsReducerDefaultData,action) => {
     switch(action.type) {
         case 'ADD_PRODUCT':
             return [...state, action.data]
         case 'DELETE_PRODUCT':
             return state.filter((product) => { return (product.id != action.id) })
+        case 'EDIT_PRODUCT':
+            return state.map((product) => {
+                if(product.id == action.id){
+                    return {...product, ...action.new_data}
+                }else{
+                    return product
+                }
+            })
         default: 
             return state;
     }
@@ -58,6 +72,9 @@ store.subscribe(() => {
 
 
 const unknown_product = store.dispatch(AddProduct());
-store.dispatch(AddProduct({title: 'Some Product Name', price: '555'}));
+const edited_product = store.dispatch(AddProduct({title: 'Some Product Name', price: '555'}));
 
 store.dispatch(DeleteProduct(unknown_product.data.id));
+
+store.dispatch(EditProduct(edited_product.data.id, {price: 'New Changed Price'}));
+store.dispatch(EditProduct(edited_product.data.id));
