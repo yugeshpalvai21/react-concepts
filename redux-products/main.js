@@ -87,19 +87,30 @@ const filtersReducer = (state = filtersReducerDefaultData, action) => {
 const store = createStore(combineReducers({products: productsReducer, filters: filtersReducer}));
 
 store.subscribe(() => {
-    console.log(store.getState());
+
+    const onlyProducts = store.getState().products;
+    const onlyFilters = store.getState().filters;
+    
+    const filteredProducts = onlyProducts.filter((product) => {
+        return product.title.includes(onlyFilters.text)
+    });
+
+    console.log(filteredProducts);
 })
 
-
-const unknown_product = store.dispatch(AddProduct());
-const edited_product = store.dispatch(AddProduct({title: 'Some Product Name', price: '555'}));
-
-store.dispatch(DeleteProduct(unknown_product.data.id));
-
-store.dispatch(EditProduct(edited_product.data.id, {price: 'New Changed Price'}));
-store.dispatch(EditProduct(edited_product.data.id));
+store.dispatch(AddProduct({title: 'some apple product', price: '312'}));
+store.dispatch(AddProduct({title: 'some samsung product', price: '312'}))
 
 store.dispatch(AddText('samsung'));
+// const unknown_product = store.dispatch(AddProduct());
+// const edited_product = store.dispatch(AddProduct({title: 'Some Product Name', price: '555'}));
 
-store.dispatch(SortByPrice());
-store.dispatch(SortByDate());
+// store.dispatch(DeleteProduct(unknown_product.data.id));
+
+// store.dispatch(EditProduct(edited_product.data.id, {price: 'New Changed Price'}));
+// store.dispatch(EditProduct(edited_product.data.id));
+
+// store.dispatch(AddText('samsung'));
+
+// store.dispatch(SortByPrice());
+// store.dispatch(SortByDate());
