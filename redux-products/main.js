@@ -61,10 +61,22 @@ const AddText = (text) => ({
     text
 })
 
+const SortByDate = () => ({
+    type: 'SORT_BY_DATE'
+})
+
+const SortByPrice = () => ({
+    type: 'SORT_BY_PRICE'
+})
+
 const filtersReducer = (state = filtersReducerDefaultData, action) => {
     switch(action.type){
         case 'ADD_TEXT':
-           return {...state, text: action.text } 
+           return {...state, text: action.text }
+        case 'SORT_BY_DATE':
+            return {...state, sort_by: 'date'}
+        case 'SORT_BY_PRICE':
+            return {...state, sort_by: 'price'} 
         default:
             return state;
     }
@@ -88,3 +100,6 @@ store.dispatch(EditProduct(edited_product.data.id, {price: 'New Changed Price'})
 store.dispatch(EditProduct(edited_product.data.id));
 
 store.dispatch(AddText('samsung'));
+
+store.dispatch(SortByPrice());
+store.dispatch(SortByDate());
