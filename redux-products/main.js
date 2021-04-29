@@ -86,22 +86,23 @@ const filtersReducer = (state = filtersReducerDefaultData, action) => {
 
 const store = createStore(combineReducers({products: productsReducer, filters: filtersReducer}));
 
-store.subscribe(() => {
-
-    const onlyProducts = store.getState().products;
-    const onlyFilters = store.getState().filters;
-    
-    const filteredProducts = onlyProducts.filter((product) => {
-        return product.title.includes(onlyFilters.text)
+const getVisibleProducts = (products, filters) => {
+    return products.filter((product) => {
+        return product.title.includes(filters.text)
     });
+}
 
-    console.log(filteredProducts);
+store.subscribe(() => {
+    const state = store.getState();
+    console.log(getVisibleProducts(state.products, state.filters));
+    
 })
 
 store.dispatch(AddProduct({title: 'some apple product', price: '312'}));
 store.dispatch(AddProduct({title: 'some samsung product', price: '312'}))
 
 store.dispatch(AddText('samsung'));
+store.dispatch(AddText('apple'));
 // const unknown_product = store.dispatch(AddProduct());
 // const edited_product = store.dispatch(AddProduct({title: 'Some Product Name', price: '555'}));
 
