@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './redux-products/main.js',
+    entry: './play_area/higher_order_component.js',
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'app.js'
