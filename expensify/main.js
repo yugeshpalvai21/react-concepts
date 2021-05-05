@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-console.dir(React);
-console.log(typeof ReactDOM);
-
+import { BrowserRouter, Route } from 'react-router-dom';
 
 const domElement = document.getElementById('app');
 
-const jsx = (
+const Header = () => (
     <div>
-        <h1>Expensify App</h1>
-        <p>Maintain Monthly Expenses</p>
+        <h1>Main Title</h1>
+        <p>main paragraph</p>
     </div>
+)
+
+const jsx = (
+    <BrowserRouter>
+        <Route path="/" component={Header} />
+    </BrowserRouter>
 );
 
 
