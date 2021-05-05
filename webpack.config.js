@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './play_area/higher_order_component.js',
+    entry: './expensify/main.js',
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'app.js'
