@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter, Route } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -10,9 +11,34 @@ const Header = () => {
     )
 }
 
+const Home = () => {
+    return (
+        <div>
+            <h1>This is rendered fro Home Component</h1>
+        </div>
+    )
+}
+
+const About = () => {
+    return (
+        <div>
+            <h1>This is rendered fro About Component</h1>
+        </div>
+    )
+}
+
+const jsx = (
+    <BrowserRouter>
+        <div>
+            <Route path="/" component={Home}  exact={true} />
+            <Route path="/about" component={About} />
+        </div>
+    </BrowserRouter>
+);
+
 const domElement = document.getElementById('app');
 
-ReactDOM.render(<Header />, domElement);
+ReactDOM.render(jsx, domElement);
 
 
 // console.log(typeof React);
