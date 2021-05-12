@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route, Switch } from 'react-router-dom';
+import {BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
     return (
         <div>
-           <a href="about">About Page</a>
-           <a href="/">Home Page</a>  
+           <NavLink to="about"> About Page</NavLink>
+           <NavLink to="/"> Home Page</NavLink> 
         </div>
     )
 }
