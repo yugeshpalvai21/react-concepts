@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route } from 'react-router-dom';
+import {BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -27,12 +27,21 @@ const About = () => {
     )
 }
 
+const NotFound = () => {
+    return (
+        <div>
+            <h1>Page Not Found Error...</h1>
+        </div>
+    )
+}
+
 const jsx = (
     <BrowserRouter>
-        <div>
+        <Switch>
             <Route path="/" component={Home}  exact={true} />
             <Route path="/about" component={About} />
-        </div>
+            <Route component={NotFound} />
+        </Switch>
     </BrowserRouter>
 );
 
