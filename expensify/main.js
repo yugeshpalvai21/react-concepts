@@ -5,8 +5,8 @@ import {BrowserRouter, Route, Switch } from 'react-router-dom';
 const Header = () => {
     return (
         <div>
-            <h1>This Is Heading</h1>
-            <p>This is Paragraph from Header Component Renderrr</p>
+           <a href="about">About Page</a>
+           <a href="/">Home Page</a>  
         </div>
     )
 }
@@ -37,11 +37,14 @@ const NotFound = () => {
 
 const jsx = (
     <BrowserRouter>
-        <Switch>
-            <Route path="/" component={Home}  exact={true} />
-            <Route path="/about" component={About} />
-            <Route component={NotFound} />
-        </Switch>
+        <div>
+            <Header />
+            <Switch>
+                <Route path="/" component={Home}  exact={true} />
+                <Route path="/about" component={About} />
+                <Route component={NotFound} />
+            </Switch>
+        </div>
     </BrowserRouter>
 );
 
