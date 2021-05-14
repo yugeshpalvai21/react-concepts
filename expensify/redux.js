@@ -1,38 +1,40 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
+const defaultExpenses = [{
+    id: '12345',
+    description: 'some description of expense',
+    note: 'detailed explanation of expense',
+    amount: 1212,
+    createdAt: 1234
+}];
 
+const defaultFilters = {
+    text: 'text value',
+    sortBy: 'amount/date',
+    startDate: undefined,
+    endDate: undefined
+}
 
-const AddCounter = ({ incrementBy = 1 } = {}) => {
-    return {
-        type: 'ADD_ONE',
-        incrementBy
+const expensesReducer = (state = defaultExpenses, action) => {
+    switch(action.type) {
+        default: 
+            return state;
     }
 }
 
-const MinusCounter = ({ decrementBy = 1 } = {}) => ( {
-    type: 'MINUS_ONE',
-    decrementBy
-})
-
-const store = createStore((state = {counter: 0}, action) => {
-    switch (action.type) {
-        case 'ADD_ONE':
-            return { counter: state.counter + action.incrementBy }
-        case 'MINUS_ONE':
-            return { counter: state.counter - action.decrementBy }
-        default: 
-            return state    
+const filtersReducer = ( state = defaultFilters, action ) => {
+    switch(action.type) {
+        default:
+            return state;
     }
-})
+}
+
+
+const store = createStore(combineReducers({expenses: expensesReducer, filters: filtersReducer }));
+
 
 store.subscribe(() => {
-    console.log(store.getState());
+    console.log(store.getState())
 });
 
-store.dispatch(AddCounter());
-store.dispatch(AddCounter({incrementBy: 500}));
-// store.dispatch({type: "ADD_COUNTER"});
-
-store.dispatch(MinusCounter());
-
-store.dispatch(MinusCounter({ decrementBy: 101 }));
+store.dispatch({type: 'something'});
