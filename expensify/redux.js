@@ -1,12 +1,7 @@
 import { createStore, combineReducers } from 'redux';
+import uuid from 'uuid';
 
-const defaultExpenses = [{
-    id: '12345',
-    description: 'some description of expense',
-    note: 'detailed explanation of expense',
-    amount: 1212,
-    createdAt: 1234
-}];
+const defaultExpenses = [];
 
 const defaultFilters = {
     text: 'text value',
@@ -15,8 +10,23 @@ const defaultFilters = {
     endDate: undefined
 }
 
+// Expenses Action Generators
+
+const AddExpense = ( {text = 'default text', note = 'default note', price = 123 } = {}) => ({
+    type: 'ADD_EXPENSE',
+    expense: {
+        id: uuid(),
+        text,
+        note,
+        price,
+        createdAt: 112233
+    }
+})
+
 const expensesReducer = (state = defaultExpenses, action) => {
     switch(action.type) {
+        case 'ADD_EXPENSE':
+            return [...state, action.expense ]
         default: 
             return state;
     }
@@ -37,4 +47,6 @@ store.subscribe(() => {
     console.log(store.getState())
 });
 
-store.dispatch({type: 'something'});
+
+store.dispatch(AddExpense());
+store.dispatch(AddExpense({text: 'some new value', note: 'detailed version', price: 4123}));
