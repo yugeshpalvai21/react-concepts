@@ -59,10 +59,26 @@ const changeTextFilter = (search_data) => ({
     search_data
 })
 
+const sortByDate = () => ({
+    type: 'SORT_BY_DATE',
+    sortBy: 'date'
+})
+
+const sortByAmount = () => ({
+    type: 'SORT_BY_AMOUNT',
+    sortBy: 'amount'
+})
+
+
+
 const filtersReducer = ( state = defaultFilters, action ) => {
     switch(action.type) {
         case 'TEXT_FILTER':
             return { ...state, ...action.search_data }
+        case 'SORT_BY_DATE':
+            return { ...state, sortBy: action.sortBy}
+        case 'SORT_BY_AMOUNT':
+            return { ...state, sortBy: action.sortBy }
         default:
             return state;
     }
@@ -87,3 +103,6 @@ const lastExpense = store.dispatch(AddExpense({description: 'some new value', no
 store.dispatch(EditExpense(lastExpense.expense.id, {description: 'yass, yasss... updated value'}));
 
 store.dispatch(changeTextFilter({text: 'new search data'}));
+
+store.dispatch(sortByDate());
+store.dispatch(sortByAmount());
