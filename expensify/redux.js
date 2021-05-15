@@ -12,11 +12,11 @@ const defaultFilters = {
 
 // Expenses Action Generators
 
-const AddExpense = ( {text = 'default text', note = 'default note', price = 123 } = {}) => ({
+const AddExpense = ( {description = 'default text', note = 'default note', price = 123 } = {}) => ({
     type: 'ADD_EXPENSE',
     expense: {
         id: uuid(),
-        text,
+        description,
         note,
         price,
         createdAt: 112233
@@ -28,12 +28,26 @@ const RemoveExpense = (id) => ({
     id: id
 })
 
+const EditExpense = (id, updated_data ) => ({
+    type: 'EDIT_EXPENSE',
+    id,
+    updated_data
+})
+
 const expensesReducer = (state = defaultExpenses, action) => {
     switch(action.type) {
         case 'ADD_EXPENSE':
             return [...state, action.expense ]
         case 'REMOVE_EXPENSE':
             return state.filter( ({ id }) => id !== action.id );
+        case 'EDIT_EXPENSE':
+            return state.map((expense) => {
+                if(expense.id == action.id) {
+                    return { ...expense, ...action.updated_data }
+                } else {
+                    return expense;
+                }
+            });
         default: 
             return state;
     }
@@ -56,8 +70,10 @@ store.subscribe(() => {
 
 
 store.dispatch(AddExpense());
-const lastExpense = store.dispatch(AddExpense({text: 'some new value', note: 'detailed version', price: 4123}));
+const lastExpense = store.dispatch(AddExpense({description: 'some new value', note: 'detailed version', price: 4123}));
 
 // console.log(lastExpense.expense.id);
 
-store.dispatch(RemoveExpense(lastExpense.expense.id));
+//store.dispatch(RemoveExpense(lastExpense.expense.id));
+
+store.dispatch(EditExpense(lastExpense.expense.id, {description: 'yass, yasss... updated value'}));
