@@ -104,11 +104,10 @@ const store = createStore(combineReducers({expenses: expensesReducer, filters: f
 
 const getVisibleExpenses = (expenses, filters) => {
     return expenses.filter((expense) => {
-        if ((expense.description.includes(filters.text)) && (expense.createdAt > filters.startDate)) {
-            return true;
-        } else {
-            return false;
-        }
+        const startDateMatch = expense.createdAt >= filters.startDate;
+        const textMatch = expense.description.includes(filters.text);
+
+        return startDateMatch && textMatch
     })
 }
 
