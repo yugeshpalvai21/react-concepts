@@ -53,8 +53,16 @@ const expensesReducer = (state = defaultExpenses, action) => {
     }
 }
 
+
+const changeTextFilter = (search_data) => ({
+    type: 'TEXT_FILTER',
+    search_data
+})
+
 const filtersReducer = ( state = defaultFilters, action ) => {
     switch(action.type) {
+        case 'TEXT_FILTER':
+            return { ...state, ...action.search_data }
         default:
             return state;
     }
@@ -77,3 +85,5 @@ const lastExpense = store.dispatch(AddExpense({description: 'some new value', no
 //store.dispatch(RemoveExpense(lastExpense.expense.id));
 
 store.dispatch(EditExpense(lastExpense.expense.id, {description: 'yass, yasss... updated value'}));
+
+store.dispatch(changeTextFilter({text: 'new search data'}));
