@@ -2,6 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
+import { configureStore } from './store/configureStore.js';
+import { AddExpense } from './actions/expenses.js';
+import { visibleExpenses } from './selectors/visibleExpenses.js'; 
+
+const store = configureStore();
+
+store.dispatch(AddExpense());
+
+console.log(store.getState());
+
 const Header = () => {
     return (
         <div>
