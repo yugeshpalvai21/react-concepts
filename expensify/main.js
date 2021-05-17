@@ -6,33 +6,47 @@ import { configureStore } from './store/configureStore.js';
 import { AddExpense } from './actions/expenses.js';
 import { visibleExpenses } from './selectors/visibleExpenses.js'; 
 
-const store = configureStore();
 
-store.dispatch(AddExpense());
-
-console.log(store.getState());
 
 const Header = () => {
     return (
         <div>
-           <NavLink to="about"> About Page</NavLink>
-           <NavLink to="/"> Home Page</NavLink> 
+           <NavLink to="/">Expenses Dash Board</NavLink>
+           <NavLink to="/addExpense">Add Expense</NavLink>
+           <NavLink to="/editExpense">Edit Expense</NavLink>
+           <NavLink to="/help">Help</NavLink> 
         </div>
     )
 }
 
-const Home = () => {
+const ExpensesDashBoard = () => {
     return (
         <div>
-            <h1>This is rendered fro Home Component</h1>
+            <h1>This is Expenses Dash Board</h1>
         </div>
     )
 }
 
-const About = () => {
+const addExpense = () => {
     return (
         <div>
-            <h1>This is rendered fro About Component</h1>
+            <h1>This is Add Expense Component</h1>
+        </div>
+    )
+}
+
+const editExpense = () => {
+    return (
+        <div>
+            <h1>Edit Expense page....</h1>
+        </div>
+    )
+}
+
+const HelpPage = () => {
+    return (
+        <div>
+            <h1>This is Help Page...</h1>
         </div>
     )
 }
@@ -50,8 +64,10 @@ const jsx = (
         <div>
             <Header />
             <Switch>
-                <Route path="/" component={Home}  exact={true} />
-                <Route path="/about" component={About} />
+                <Route path="/" component={ExpensesDashBoard}  exact={true} />
+                <Route path="/AddExpense" component={addExpense} />
+                <Route path="/EditExpense" component={editExpense} />
+                <Route path="/help" component={HelpPage} />
                 <Route component={NotFound} />
             </Switch>
         </div>
