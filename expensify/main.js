@@ -12,4 +12,12 @@ const domElement = document.getElementById('app');
 
 ReactDOM.render(jsx, domElement);
 
+const store = configureStore();
+
+console.log(store.getState());
+
+store.dispatch(AddExpense({ description: 'new expense adding', price: 99.99}));
+
+console.log(store.getState());
+
 
