@@ -7,7 +7,7 @@ import { editExpense } from './editExpense.js';
 import { HelpPage } from './help.js';
 import {NotFound} from './NotFoundPage.js';
 
-const jsx = (
+const AppRouter = () => (
     <BrowserRouter>
         <div>
             <Header />
@@ -22,4 +22,4 @@ const jsx = (
     </BrowserRouter>
 );
 
-export { jsx }
+export { AppRouter }
