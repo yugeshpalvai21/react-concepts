@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const ExpensesList = (props) => {
+    console.log(props);
     return (
         <div>
             <h1>This is Expenses Dash Board</h1>
