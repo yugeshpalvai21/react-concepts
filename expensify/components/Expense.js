@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Expense = (props) => {
+const Expense = ({id, title, description, price}) => {
     return (
         <div>
-            <h4>Id: {props.expense.id}</h4>
-            <h3>Title: { props.expense.title }</h3>
-            <p>Description: { props.expense.description }</p>
-            <p>Price: { props.expense.price }</p>
+            <h4>Id: {id}</h4>
+            <h3>Title: { title }</h3>
+            <p>Description: { description }</p>
+            <p>Price: { price }</p>
         </div>
     )
 }

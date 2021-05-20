@@ -7,7 +7,7 @@ const ExpensesList = (props) => {
     return (
         <div>
             <h1>Expenses List</h1>
-            { props.expenses.map((expense) => <Expense key={expense.id} expense={expense} /> )}
+            { props.expenses.map((expense) => <Expense key={expense.id} {...expense} /> )}
         </div>
     )
 }
