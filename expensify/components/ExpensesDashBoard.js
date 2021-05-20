@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Expense } from './Expense.js';
+
 
 const ExpensesList = (props) => {
-    console.log(props);
     return (
         <div>
-            <h1>This is Expenses Dash Board</h1>
+            <h1>Expenses List</h1>
+            { props.expenses.map((expense) => <Expense key={expense.id} expense={expense} /> )}
         </div>
     )
 }
@@ -13,7 +15,6 @@ const ExpensesList = (props) => {
 const expenses = (state) => {
     return {
         expenses: state.expenses,
-        filters: state.filters
     }
 }
 
