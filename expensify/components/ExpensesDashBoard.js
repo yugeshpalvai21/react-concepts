@@ -1,11 +1,11 @@
 import React from 'react';
-
+import { ExpensesList } from './ExpensesList.js';
 
 const ExpensesDashBoard = (props) => {
     return (
         <div>
-            <h1>Expenses List</h1>
-            <p>This Component Will Renders Individual Expense Components</p>
+            <h1>This is Expenses Dash Board</h1>
+            <ExpensesList />
         </div>
     )
 }

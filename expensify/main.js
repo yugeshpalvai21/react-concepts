@@ -18,10 +18,10 @@ const domElement = document.getElementById('app');
 ReactDOM.render(jsx, domElement);
 
 
-console.log(store);
-console.log(store.getState());
-store.dispatch(AddExpense());
-console.log(store.getState());
+// console.log(store);
+// console.log(store.getState());
+// store.dispatch(AddExpense());
+// console.log(store.getState());
 
 
 
