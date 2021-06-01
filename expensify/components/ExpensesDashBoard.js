@@ -1,24 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { Expense } from './Expense.js';
 
 
-const ExpensesList = (props) => {
+const ExpensesDashBoard = (props) => {
     return (
         <div>
             <h1>Expenses List</h1>
-            { props.expenses.map((expense) => <Expense key={expense.id} {...expense} /> )}
+            <p>This Component Will Renders Individual Expense Components</p>
         </div>
     )
 }
-
-const expenses = (state) => {
-    return {
-        expenses: state.expenses,
-    }
-}
-
-const ExpensesDashBoard = connect(expenses)(ExpensesList);
 
 
 export { ExpensesDashBoard }
