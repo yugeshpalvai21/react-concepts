@@ -20,7 +20,9 @@ ReactDOM.render(jsx, domElement);
 
 // console.log(store);
 // console.log(store.getState());
-// store.dispatch(AddExpense());
+// setInterval(() => {
+//     store.dispatch(AddExpense());
+// }, 3000);
 // console.log(store.getState());
 
 
