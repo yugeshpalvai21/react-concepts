@@ -1,10 +1,10 @@
 import styles from './App.module.css';
-import { Counter } from './components/Counter';
+import { Visibility } from './components/Visibility';
 
 function App() {
   return (
     <div>
-      <Counter />
+      <Visibility />
     </div>
   );
 }
