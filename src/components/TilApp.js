@@ -1,74 +1,78 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-const Header = () => {
-    return (
-        <div>
-            <h4>Today I Learned</h4>
-            <p>small app that stores topics that you learned everyday</p>
-        </div>
-    );
-}
+const Header = () => (
+  <div>
+    <h4>Today I Learned</h4>
+    <p>small app that stores topics that you learned everyday</p>
+  </div>
+);
 
 const AddTopic = (props) => {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newItem = document.getElementById('newTopic').value;
-        document.getElementById('newTopic').value = '';
-        props.handleAdd(newItem);
-    }
+  const [newTopic, setNewTopic] = useState("");
 
-    return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" id="newTopic" placeholder="write new topic here.."></input>
-                <input type="submit" value="Add To List"></input>
-            </form>
-        </div>
-    );
-}
+  const handleSubmit = () => {
+    props.handleAdd(newTopic);
+    setNewTopic("");
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="write new topic here.."
+        value={newTopic}
+        onChange={(e) => setNewTopic(e.target.value)}
+      ></input>
+      <button onClick={handleSubmit}>Add Topic</button>
+    </div>
+  );
+};
 
 const Topics = (props) => {
-    return (
-        <div>
-            <ul>
-                { props.topics.map((item) => <Topic key={item} itemValue={item} handleDeleteItem={props.handleDeleteItem}/>) }
-            </ul>
-        </div>
-    );
-}
-
-
+  return (
+    <div>
+      <ul>
+        {props.topics.map((topic) => (
+          <Topic
+            key={topic}
+            topic={topic}
+            handleDeleteTopic={props.handleDeleteTopic}
+          />
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 const Topic = (props) => {
-    const handleDelete = (e) => {
-        props.handleDeleteItem(props.itemValue);
-    }
+  const handleDeleteTopic = () => {
+    props.handleDeleteTopic(props.topic);
+  };
 
-    return (
-        <li>
-            {props.itemValue} &nbsp;&nbsp;&nbsp;
-            <button onClick={handleDelete}>Delete This Item</button>
-        </li>
-    )
-}
+  return (
+    <li>
+      {props.topic} &nbsp;&nbsp;&nbsp;
+      <button onClick={handleDeleteTopic}>Delete This Item</button>
+    </li>
+  );
+};
 
 export const TilApp = () => {
-    const [topics, setTopics] = useState([]);
+  const [topics, setTopics] = useState([]);
 
-    const handleAdd = (item) =>  {
-      setTopics([...topics, item]);
-    }
+  const handleAdd = (item) => {
+    setTopics([...topics, item]);
+  };
 
-    const handleDeleteItem = (delItem) => {
-        console.log("you're trying to delete - ", delItem);
-        setTopics(topics.filter((item) => item !== delItem ));
-    }
+  const handleDeleteTopic = (delItem) => {
+    setTopics(topics.filter((item) => item !== delItem));
+  };
 
-    return (
-        <div>
-            <Header />
-            <AddTopic handleAdd={handleAdd}/>
-            <Topics topics={topics} handleDeleteItem={handleDeleteItem} />
-        </div>
-    );
-}
+  return (
+    <div>
+      <Header />
+      <AddTopic handleAdd={handleAdd} />
+      <Topics topics={topics} handleDeleteTopic={handleDeleteTopic} />
+    </div>
+  );
+};
