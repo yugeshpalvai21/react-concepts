@@ -1,10 +1,10 @@
-import styles from './App.module.css';
-import { Visibility } from './components/Visibility';
+// import styles from './App.module.css';
+import { TilApp } from './components/TilApp';
 
 function App() {
   return (
     <div>
-      <Visibility />
+      <TilApp />
     </div>
   );
 }
