@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './redux/main.js',
+    entry: './play_area/react_hooks.js',
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: 'app.js'
