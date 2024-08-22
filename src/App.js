@@ -1,10 +1,10 @@
 // import styles from './App.module.css';
-import { TilApp } from './components/TilApp';
+import { CounterReducer } from './components/CounterReducer';
 
 function App() {
   return (
     <div>
-      <TilApp />
+      <CounterReducer />
     </div>
   );
 }
