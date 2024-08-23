@@ -13,7 +13,7 @@ const reducer = (state, action) => {
   }
 };
 
-export const CounterReducer = () => {
+export const UseReducerHook = () => {
   const initialState = { counter: 0 };
   const [state, dispatch] = useReducer(reducer, initialState);
   

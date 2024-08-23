@@ -1,10 +1,10 @@
 // import styles from './App.module.css';
-import { UseStateHook } from './hooks/UseStateHook';
+import { UseReducerHook } from './hooks/UseReducerHook';
 
 function App() {
   return (
     <div>
-      <UseStateHook />
+      <UseReducerHook />
     </div>
   );
 }
