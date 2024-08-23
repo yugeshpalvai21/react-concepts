@@ -1,10 +1,10 @@
 // import styles from './App.module.css';
-import { CounterReducer } from './components/CounterReducer';
+import { UseStateHook } from './hooks/UseStateHook';
 
 function App() {
   return (
     <div>
-      <CounterReducer />
+      <UseStateHook />
     </div>
   );
 }
