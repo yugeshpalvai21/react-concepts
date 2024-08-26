@@ -1,10 +1,10 @@
 // import styles from './App.module.css';
-import { UseEffectHook } from './hooks/UseEffectHook';
+import { UseContextHook } from './hooks/UseContextHook';
 
 function App() {
   return (
     <div>
-      <UseEffectHook />
+      <UseContextHook />
     </div>
   );
 }
