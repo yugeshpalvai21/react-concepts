@@ -1,10 +1,10 @@
 // import styles from './App.module.css';
-import { UseContextHook } from './hooks/UseContextHook';
+import { UseQueryHook } from './hooks/UseQueryHook';
 
 function App() {
   return (
     <div>
-      <UseContextHook />
+      <UseQueryHook />
     </div>
   );
 }
