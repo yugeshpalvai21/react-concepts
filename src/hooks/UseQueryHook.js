@@ -7,7 +7,10 @@ export const UseQueryHook = () => {
     return data.fact;
   };
   
-  const { isLoading, isError, error, data, refetch }  = useQuery({ queryKey: ["fact"], queryFn: fetchFactFn });
+  const { isLoading, isError, error, data, refetch }  = useQuery({ 
+                                                                  queryKey: ["fact"], 
+                                                                  queryFn: fetchFactFn 
+                                                                });
 
   if (isLoading) {
     return <span>Loading...</span>
